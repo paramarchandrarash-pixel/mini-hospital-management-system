@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Dashboard</title>
+</head>
+<body>
+    <h1>Patient Dashboard</h1>
+    <a href="/logout/">Logout</a>
+
+    <h2>Available Slots</h2>
+    <ul>
+        {% for slot in slots %}
+            <li>
+                Doctor: {{ slot.doctor.username }} | {{ slot.date }} - {{ slot.time }}
+                <a href="/book-slot/{{ slot.id }}/">Book</a>
+            </li>
+        {% empty %}
+            <li>No available slots.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>My Bookings</h2>
+    <ul>
+        {% for booking in bookings %}
+            <li>Doctor: {{ booking.doctor.username }} | {{ booking.slot.date }} - {{ booking.slot.time }}</li>
+        {% empty %}
+            <li>No bookings yet.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

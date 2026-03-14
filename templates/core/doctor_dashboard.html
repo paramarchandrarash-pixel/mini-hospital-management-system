@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctor Dashboard</title>
+</head>
+<body>
+    <h1>Doctor Dashboard</h1>
+    <a href="/doctor/add-slot/">Add Slot</a> |
+    <a href="/logout/">Logout</a>
+
+    <h2>Your Slots</h2>
+    <ul>
+        {% for slot in slots %}
+            <li>{{ slot.date }} - {{ slot.time }} - 
+                {% if slot.is_booked %}Booked{% else %}Available{% endif %}
+            </li>
+        {% empty %}
+            <li>No slots added yet.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Your Bookings</h2>
+    <ul>
+        {% for booking in bookings %}
+            <li>Patient: {{ booking.patient.username }} | {{ booking.slot.date }} - {{ booking.slot.time }}</li>
+        {% empty %}
+            <li>No bookings yet.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
