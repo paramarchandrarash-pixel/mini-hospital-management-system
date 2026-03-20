@@ -25,10 +25,20 @@ A Django-based Mini Hospital Management System that supports doctor and patient 
 
 ## Project Structure
 
-```text
+```
 mini_hms/
 ├── core/
 ├── hospital/
 ├── templates/core/
+├── email_service/
+├── requirements.txt
+├── .gitignore
+├── readme.md
 ├── db.sqlite3
 ├── manage.py
+
+
+
+
+
+
